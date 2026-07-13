@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+SC:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-heritage-gold: #C5A059;
+  --color-clinical-teal: #2A4E5C;
+  --color-deep-onyx: #1F1110;
+  --color-surface-white: #FFFFFF;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container-high: #e7e8e9;
+  
+  --font-serif: "EB Garamond", serif;
+  --font-sans: "Montserrat", "Noto Sans SC", sans-serif;
+
+  --font-size-xs: 0.8125rem; /* Upgraded from 0.75rem */
+  --font-size-sm: 0.9375rem; /* Upgraded from 0.875rem */
+  --font-size-base: 1.0625rem; /* Upgraded from 1rem */
+  --font-size-lg: 1.1875rem; /* Upgraded from 1.125rem */
+  --font-size-xl: 1.3125rem; /* Upgraded from 1.25rem */
+  --font-size-2xl: 1.625rem; /* Upgraded from 1.5rem */
+  --font-size-3xl: 2rem;     /* Upgraded from 1.875rem */
+  --font-size-4xl: 2.5rem;   /* Upgraded from 2.25rem */
+  --font-size-5xl: 3.25rem;  /* Upgraded from 3rem */
+  --font-size-6xl: 4rem;     /* Upgraded from 3.75rem */
+
+  --animate-heartbeat: heartbeat 1.4s ease-in-out infinite;
+  --animate-marquee: marquee 120s linear infinite;
+  --animate-whatsapp-beat: whatsapp-beat 1.6s ease-in-out infinite;
+  --animate-whatsapp-aura: whatsapp-aura 1.6s ease-out infinite;
+}
+
+@keyframes whatsapp-beat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.12); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.12); }
+  70% { transform: scale(1); }
+}
+
+@keyframes whatsapp-aura {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(197, 160, 89, 0); }
+  14% { transform: scale(1.08); box-shadow: 0 0 18px 4px rgba(197, 160, 89, 0.55); }
+  28% { transform: scale(1); box-shadow: 0 0 0 rgba(197, 160, 89, 0); }
+  42% { transform: scale(1.08); box-shadow: 0 0 18px 4px rgba(197, 160, 89, 0.55); }
+  70% { transform: scale(1); box-shadow: 0 0 0 rgba(197, 160, 89, 0); }
+}
+
+/* Sweeping light highlight used alongside the heartbeat pulse on CTA buttons */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -75%;
+  width: 50%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-20deg);
+  animation: btn-shine-sweep 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes btn-shine-sweep {
+  0% { left: -75%; }
+  35%, 100% { left: 125%; }
+}
+
+@layer base {
+  body {
+    @apply bg-[#f8f9fa] text-[#191c1d] antialiased selection:bg-heritage-gold/20 selection:text-black;
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom scrollbar to match the clinical premium aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
+}

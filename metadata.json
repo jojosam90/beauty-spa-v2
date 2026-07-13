@@ -1,0 +1,6 @@
+{
+  "name": "EB Centre",
+  "description": "Premium Korean Head Spa & Scalp Clinical Wellness in Singapore",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

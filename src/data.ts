@@ -7,9 +7,9 @@ export const translations = {
     navWellness: "Wellness",
     navBookNow: "Book Now",
     heroPreTitle: "Premium Clinical Experience",
-    heroTitle_1: "Head Spa Singapore",
+    heroTitle_1: "Scalp Therapy Singapore",
     heroTitle_italic: "Discover the Ultimate Scalp Wellness",
-    heroSubtitle: "Deep Scalp Relaxation Singapore — Professional head spa care offering tension headache relief and scientifically-backed scalp wellness.",
+    heroSubtitle: "Deep Scalp Relaxation Singapore — Professional scalp therapy offering tension headache relief and scientifically-backed scalp wellness.",
     heroBtnBook: "Book Now",
     heroBtnRituals: "View Treatments",
     reasonsTitle: "5D Smart Device Deep Scalp Relaxation",
@@ -38,7 +38,7 @@ export const translations = {
     contactHoursLabel: "Business Hours",
     contactHoursValue: "Daily: 10:00 AM – 10:30 PM (By Appointment)",
     contactOpenInMaps: "Open in Maps",
-    footerIntro: "Singapore's premier head spa for deep scalp relaxation and sleep improvement head care. Scientifically informed, luxuriously delivered.",
+    footerIntro: "Singapore's premier destination for deep scalp relaxation and sleep improvement head care. Scientifically informed, luxuriously delivered.",
     footerCategoryTitle: "Treatments",
     footerContactTitle: "Contact Us",
     footerCopyright: "© 2026 EB Centre. All rights reserved.",
@@ -204,7 +204,7 @@ export const treatmentsData = {
   en: [
     {
       id: "signature",
-      title: "Signature Head Spa",
+      title: "Signature Head Therapy",
       subtitle: "Ultimate Balancing Meridian Care",
       tag: "SIGNATURE",
       duration: "60 mins",
@@ -347,7 +347,7 @@ export const commitmentsData = {
   en: [
     {
       title: "Expert-Trained Specialists",
-      description: "Our therapists undergo rigorous training in authentic head spa protocols and scalp anatomy.",
+      description: "Our therapists undergo rigorous training in authentic head therapy protocols and scalp anatomy.",
       iconName: "verified_user"
     },
     {
@@ -385,21 +385,14 @@ export const testimonialsData = {
     {
       name: "Victoria Chen",
       role: "Investment Banker",
-      quote: "The Signature Head Spa significantly helped relieve my chronic tension headaches and dry scalp. The level of meticulous care is absolutely world-class.",
+      quote: "The signature head therapy significantly relieved my long-term tension headaches and dry scalp. The therapist's professional, meticulous technique is simply world-class — I sleep incredibly soundly every time.",
       rating: 5,
       date: "Jun 27, 2026"
     },
     {
-      name: "Sophia Lim",
-      role: "Lifestyle Influencer",
-      quote: "My hair has never looked so voluminous and healthy! The clinical analysis and high-pressure water wash is fascinating to witness.",
-      rating: 5,
-      date: "Jun 12, 2026"
-    },
-    {
       name: "Sarah T.",
       role: "Verified Client",
-      quote: "The head & face relaxation ritual was incredible — my first-time tension headache disappeared completely. The therapist's technique was so skilled and attentive, truly a hidden gem!",
+      quote: "The head & face relaxation ritual was so soothing — after my very first session, my tension headache disappeared completely. The therapist's technique was highly skilled and attentive, truly a hidden gem!",
       rating: 5,
       date: "Jun 20, 2026"
     }
@@ -411,13 +404,6 @@ export const testimonialsData = {
       quote: "招牌头疗大大缓解了我长期的紧张性偏头痛和头皮干燥问题。理疗师专业细致的手法简直是世界一流，每次都能睡得极其香甜。",
       rating: 5,
       date: "6/27/2026"
-    },
-    {
-      name: "林小姐 (Sophia)",
-      role: "知名生活博主",
-      quote: "做完头疗后我的头发看起来比以前更显丰盈、更有光泽！高清头皮检测让我看清楚了毛囊的大变身，真的很神奇！",
-      rating: 5,
-      date: "6/12/2026"
     },
     {
       name: "Sarah T.",

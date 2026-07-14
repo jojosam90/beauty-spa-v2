@@ -448,7 +448,7 @@ export default function BookingModal({ isOpen, onClose, language, initialTreatme
                     <p className="text-[18px] text-clinical-teal leading-relaxed">
                       {language === "zh" 
                         ? "温馨提示：因周末时段紧凑，线上预约提交后客服将为您极速保留名额。请您注意查收确认短信。" 
-                        : "Note: To guarantee the clinical-spa atmosphere, slot durations are strict. No immediate prepayment is required, and cancellation is free up to 24h prior."}
+                        : "Note: To guarantee the clinical atmosphere, slot durations are strict. No immediate prepayment is required, and cancellation is free up to 24h prior."}
                     </p>
                   </div>
                 </motion.div>

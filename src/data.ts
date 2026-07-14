@@ -280,7 +280,7 @@ export const treatmentsData = {
       duration: "60 分钟",
       price: "$118 SGD",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDkAb9jD2uLfUT1cHmjWK43Ub1tRQmi1mDMfyM_8VvQn6kpCwBLaxT5-co3OLnZUI_uq1uCkEubKh1fSuqRauuUQlGJGGp9RbtkLHKthpJ83uuTsc-54pQdTLMuVD9tWS_JQWbXTuvWFk78HPQZWMSSx2QjidpQ-i_Z1fnNTpNFkyWUSIkUoItu3JcZYy-EEzGGQkc4-xYApG-ehdI9TeoVbaoWtLFnW3mtj7DUgE1uVAG6JQYFASd8Q_cGDe_ZRX3BMjKuQ98r9pY",
-      description: "结合深度经络按摩与定制化药水，提供多感官全方位的头部解压与修复体验。",
+      description: "结合深度经络按摩与头皮精油，提供多感官全方位的头部解压与修复体验。",
       benefits: [
         "重塑头皮微生态，深度调理油脂分泌，摆脱油腻和异味",
         "舒缓深层脑部压力，改善失眠、多梦状态，促进进入深度睡眠",

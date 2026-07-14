@@ -390,13 +390,6 @@ export const testimonialsData = {
       date: "Jun 27, 2026"
     },
     {
-      name: "Marcus Tan",
-      role: "Creative Director",
-      quote: "An unparalleled sensory experience right on Orchard Road. The private room and custom soundscapes made me feel like I was in a 5-star Seoul resort.",
-      rating: 5,
-      date: "Jun 20, 2026"
-    },
-    {
       name: "Sophia Lim",
       role: "Lifestyle Influencer",
       quote: "My hair has never looked so voluminous and healthy! The clinical analysis and high-pressure water wash is fascinating to witness.",
@@ -409,27 +402,6 @@ export const testimonialsData = {
       quote: "The head & face relaxation ritual was incredible — my first-time tension headache disappeared completely. The therapist's technique was so skilled and attentive, truly a hidden gem!",
       rating: 5,
       date: "Jun 20, 2026"
-    },
-    {
-      name: "Michelle L.",
-      role: "Verified Client",
-      quote: "Best facial treatment in Singapore! My skin looks radiant and dewy, with results lasting for weeks. The team really took time to understand my skin concerns and tailored the perfect routine.",
-      rating: 5,
-      date: "Jun 18, 2026"
-    },
-    {
-      name: "Jennifer K.",
-      role: "Verified Client",
-      quote: "The body mud therapy was amazing! So warm and soothing, my muscles were completely relaxed and I felt totally renewed. Definitely coming back!",
-      rating: 5,
-      date: "Jun 15, 2026"
-    },
-    {
-      name: "Rachel W.",
-      role: "Verified Client",
-      quote: "After 3 facial sessions my complexion has visibly improved — the results really show. The team is so professional and always warm and welcoming.",
-      rating: 5,
-      date: "Jun 12, 2026"
     }
   ],
   zh: [
@@ -439,13 +411,6 @@ export const testimonialsData = {
       quote: "韩式招牌头疗彻底治好了我的慢性偏头痛和头皮干燥。理疗师专业细致的手法简直是世界一流，每次都能睡得极其香甜。",
       rating: 5,
       date: "6/27/2026"
-    },
-    {
-      name: "谭先生 (Marcus)",
-      role: "创意总监",
-      quote: "无与伦比的感官体验。独立静音疗程室以及定制自然白噪音，仿佛让我瞬间置身于首尔顶级的奢华度假村。",
-      rating: 5,
-      date: "6/20/2026"
     },
     {
       name: "林小姐 (Sophia)",
@@ -460,27 +425,6 @@ export const testimonialsData = {
       quote: "头脸舒缓疗程非常放松，做完第一次紧张性头痛就消失了。治疗师技术高超、贴心周到——真的是个隐藏宝地！",
       rating: 5,
       date: "6/20/2026"
-    },
-    {
-      name: "Michelle L.",
-      role: "认证客户",
-      quote: "新加坡最好的面部疗程！肌肤水润光泽，效果持续数周。团队认真了解肌肤问题，定制了完美护理方案。",
-      rating: 5,
-      date: "6/18/2026"
-    },
-    {
-      name: "Jennifer K.",
-      role: "认证客户",
-      quote: "身体泥浆疗法真的太好了！温暖舒缓，全身肌肉完全放松，感觉焕然一新。一定会再来！",
-      rating: 5,
-      date: "6/15/2026"
-    },
-    {
-      name: "Rachel W.",
-      role: "认证客户",
-      quote: "做了3次面部护理后肤色明显改善，效果真的可见。团队非常专业，每次到访都热情友好。",
-      rating: 5,
-      date: "6/12/2026"
     }
   ]
 };

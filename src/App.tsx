@@ -20,7 +20,8 @@ import {
 
 import { Language } from "./types";
 import { translations, reasonsData, treatmentsData, testimonialsData } from "./data";
-import { StoredReview, getApprovedReviews, getDeletedStaticNames } from "./reviewStore";
+import { getApprovedReviews, getDeletedStaticNames, getReviewText, migrateLegacyReviews } from "./reviewStore";
+import { verifyAdminPin, getLockoutRemainingMs } from "./adminAuth";
 import BookingModal from "./components/BookingModal";
 import TreatmentDetailModal from "./components/TreatmentDetailModal";
 import ReviewModal from "./components/ReviewModal";
@@ -79,11 +80,18 @@ export default function App() {
   const [isReviewOpen, setIsReviewOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [selectedTreatmentId, setSelectedTreatmentId] = useState<string>("signature");
-  const [visibleTestimonials, setVisibleTestimonials] = useState<StoredReview[]>([]);
+  const [visibleTestimonials, setVisibleTestimonials] = useState<
+    { name: string; quote: string; rating: number; date: string }[]
+  >([]);
 
   const refreshTestimonials = (lang: Language) => {
     const deleted = getDeletedStaticNames();
-    const approved = getApprovedReviews();
+    const approved = getApprovedReviews().map((r) => ({
+      name: r.name,
+      quote: getReviewText(r, lang),
+      rating: r.rating,
+      date: r.date,
+    }));
     const staticOnes = testimonialsData[lang].filter((t) => !deleted.includes(t.name));
     setVisibleTestimonials([...approved, ...staticOnes]);
   };
@@ -92,6 +100,14 @@ export default function App() {
     refreshTestimonials(language);
   }, [language]);
 
+  // One-time backfill for reviews saved before auto-translation existed
+  useEffect(() => {
+    migrateLegacyReviews().then((changed) => {
+      if (changed) refreshTestimonials(language);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // About Treatment video cards (Streamable embeds)
   const treatmentVideoIds = ["w8e162", "qbcn1e", "nwces1"];
 
@@ -99,18 +115,28 @@ export default function App() {
   const footerClickCount = useRef(0);
   const footerClickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleFooterClick = () => {
+  const handleFooterClick = async () => {
     footerClickCount.current += 1;
     if (footerClickTimer.current) clearTimeout(footerClickTimer.current);
 
     if (footerClickCount.current >= 5) {
       footerClickCount.current = 0;
+
+      const lockoutMs = getLockoutRemainingMs();
+      if (lockoutMs > 0) {
+        window.alert(`Too many attempts. Try again in ${Math.ceil(lockoutMs / 60000)} minute(s).`);
+        return;
+      }
+
       const pin = window.prompt("Admin PIN:");
       if (pin === null) return;
-      if (pin === "8653") {
+
+      const ok = await verifyAdminPin(pin);
+      if (ok) {
         setIsAdminOpen(true);
       } else {
-        window.alert("Incorrect PIN");
+        const remaining = getLockoutRemainingMs();
+        window.alert(remaining > 0 ? "Too many incorrect attempts. Locked out temporarily." : "Incorrect PIN");
       }
     } else {
       footerClickTimer.current = setTimeout(() => {
@@ -517,29 +543,27 @@ export default function App() {
               {[...visibleTestimonials, ...visibleTestimonials].map((testimonial, idx) => (
                 <div
                   key={`${testimonial.name}-${idx}`}
-                  className="shrink-0 w-[320px] sm:w-[380px] min-h-[380px] bg-white border border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+                  className="shrink-0 w-[320px] sm:w-[380px] h-[380px] bg-white border border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      {/* Star Rating */}
-                      <div className="flex items-center gap-1 text-[#C5A059]">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} size={14} fill="#C5A059" />
-                        ))}
-                      </div>
-                      <span className="flex items-center gap-1.5 bg-gray-50 border border-gray-100 rounded-full px-3 py-1">
-                        <GoogleIcon />
-                        <span className="text-sm font-medium text-gray-700">Google</span>
-                      </span>
+                  <div className="flex items-center justify-between shrink-0">
+                    {/* Star Rating */}
+                    <div className="flex items-center gap-1 text-[#C5A059]">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} size={14} fill="#C5A059" />
+                      ))}
                     </div>
-
-                    {/* Quote */}
-                    <p className="text-base text-gray-600 italic leading-relaxed font-light">
-                      "{testimonial.quote}"
-                    </p>
+                    <span className="flex items-center gap-1.5 bg-gray-50 border border-gray-100 rounded-full px-3 py-1">
+                      <GoogleIcon />
+                      <span className="text-sm font-medium text-gray-700">Google</span>
+                    </span>
                   </div>
 
-                  <div className="flex items-center justify-between gap-3 pt-6 border-t border-gray-800 mt-6">
+                  {/* Quote: scrolls internally if it's too long for the card */}
+                  <p className="text-base text-gray-600 italic leading-relaxed font-light flex-1 min-h-0 overflow-y-auto my-4 pr-1">
+                    "{testimonial.quote}"
+                  </p>
+
+                  <div className="flex items-center justify-between gap-3 pt-6 border-t border-gray-800 shrink-0">
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-full bg-clinical-teal/5 flex items-center justify-center font-bold text-base text-clinical-teal uppercase shrink-0">
                         {testimonial.name.charAt(0)}
@@ -556,7 +580,7 @@ export default function App() {
           <div className="text-center mt-10">
             <button
               onClick={() => setIsReviewOpen(true)}
-              className="inline-flex items-center gap-2 bg-heritage-gold text-white px-6 py-3 rounded-full text-base font-semibold uppercase tracking-widest hover:bg-[#b08c48] transition-colors"
+              className="btn-shine animate-heartbeat inline-flex items-center gap-2 bg-heritage-gold text-white px-6 py-3 rounded-full text-base font-semibold uppercase tracking-widest hover:bg-[#b08c48] transition-colors"
             >
               <Star size={14} fill="white" />
               {t.testimonialsWriteReview}
@@ -714,7 +738,7 @@ export default function App() {
         </div>
 
         {/* Lower footer */}
-        <div className="max-w-7xl mx-auto px-6 pt-12 mt-12 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-500 text-sm tracking-wider font-mono">
+        <div className="max-w-7xl mx-auto px-6 pt-12 mt-12 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-500 text-sm tracking-wider font-roboto">
           <p>{t.footerCopyright}</p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

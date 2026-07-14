@@ -89,8 +89,14 @@ export default function AdminReviewsModal({ isOpen, onClose, language }: AdminRe
                     <Stars rating={r.rating} />
                     <span className="font-bold text-black">{r.name}</span>
                     <span className="text-gray-400 text-sm">· {r.date}</span>
+                    <span className="text-[10px] uppercase tracking-widest text-gray-400 bg-gray-200 rounded-full px-2 py-0.5">
+                      {r.originalLang === "zh" ? "Original: 中文" : "Original: English"}
+                    </span>
                   </div>
                   <p className="text-gray-700 italic leading-relaxed">"{r.quote}"</p>
+                  <p className="text-gray-400 text-sm italic leading-relaxed">
+                    {r.originalLang === "zh" ? "EN: " : "中文: "}"{r.translatedQuote}"
+                  </p>
                   <div className="flex gap-6 pt-1">
                     <button
                       onClick={() => { approvePendingReview(r.id); refresh(); }}
@@ -128,6 +134,9 @@ export default function AdminReviewsModal({ isOpen, onClose, language }: AdminRe
                   <span className="text-gray-400 text-sm">· {r.date}</span>
                 </div>
                 <p className="text-gray-700 italic leading-relaxed">"{r.quote}"</p>
+                <p className="text-gray-400 text-sm italic leading-relaxed">
+                  {r.originalLang === "zh" ? "EN: " : "中文: "}"{r.translatedQuote}"
+                </p>
                 <button
                   onClick={() => { deleteApprovedReview(r.id); refresh(); }}
                   className="flex flex-col items-center gap-1 text-red-500"

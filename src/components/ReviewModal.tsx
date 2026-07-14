@@ -14,11 +14,16 @@ interface ReviewModalProps {
 export default function ReviewModal({ isOpen, onClose, language }: ReviewModalProps) {
   const t = translations[language];
 
+  const NAME_MAX = 60;
+  const REVIEW_MAX = 600;
+
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [name, setName] = useState("");
   const [review, setReview] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleClose = () => {
     onClose();
@@ -28,13 +33,24 @@ export default function ReviewModal({ isOpen, onClose, language }: ReviewModalPr
       setName("");
       setReview("");
       setSubmitted(false);
+      setSubmitting(false);
+      setError("");
     }, 300);
   };
 
-  const handleSubmit = () => {
-    if (!name.trim() || !review.trim()) return;
-    addPendingReview(name.trim(), review.trim(), rating || 5);
-    setSubmitted(true);
+  const handleSubmit = async () => {
+    if (!name.trim() || !review.trim() || submitting) return;
+    setSubmitting(true);
+    setError("");
+    const result = await addPendingReview(name.trim(), review.trim(), rating || 5);
+    setSubmitting(false);
+    if (result.ok) {
+      setSubmitted(true);
+    } else if (result.reason === "cooldown") {
+      setError(language === "zh" ? "提交太频繁，请稍后再试。" : "You're submitting too fast — please wait a bit and try again.");
+    } else {
+      setError(language === "zh" ? "请填写有效的姓名和评价。" : "Please enter a valid name and review.");
+    }
   };
 
   if (!isOpen) return null;
@@ -102,6 +118,7 @@ export default function ReviewModal({ isOpen, onClose, language }: ReviewModalPr
                 <input
                   type="text"
                   value={name}
+                  maxLength={NAME_MAX}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full text-base px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-heritage-gold"
                   placeholder={t.reviewNamePlaceholder}
@@ -115,17 +132,24 @@ export default function ReviewModal({ isOpen, onClose, language }: ReviewModalPr
                 <textarea
                   rows={4}
                   value={review}
+                  maxLength={REVIEW_MAX}
                   onChange={(e) => setReview(e.target.value)}
                   className="w-full text-base px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-heritage-gold"
                   placeholder={t.reviewTextPlaceholder}
                 />
+                <p className="text-xs text-gray-400 text-right mt-1">{review.length}/{REVIEW_MAX}</p>
               </div>
+
+              {error && (
+                <p className="text-sm text-red-600 -mt-2">{error}</p>
+              )}
 
               <button
                 onClick={handleSubmit}
-                className="w-full bg-heritage-gold text-white py-3.5 rounded-full text-base font-semibold uppercase tracking-widest hover:bg-[#b08c48] transition-colors"
+                disabled={submitting}
+                className="w-full bg-heritage-gold text-white py-3.5 rounded-full text-base font-semibold uppercase tracking-widest hover:bg-[#b08c48] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {t.reviewSubmitBtn}
+                {submitting ? (language === "zh" ? "翻译中..." : "Translating...") : t.reviewSubmitBtn}
               </button>
             </div>
           )}

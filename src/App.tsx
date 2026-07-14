@@ -434,24 +434,6 @@ export default function App() {
                 key={ritual.id}
                 className="bg-[#f8f9fa] border border-gray-200/60 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-500 flex flex-col justify-between group"
               >
-                {/* Visual Header Cover */}
-                <div className="relative h-64 overflow-hidden bg-black shrink-0">
-                  <img
-                    src={ritual.image}
-                    alt={ritual.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
-                  />
-                  {ritual.tag && (
-                    <span className="absolute top-4 left-4 bg-[#1F1110] text-heritage-gold text-[20px] font-bold tracking-[0.25em] px-3 py-1 uppercase rounded">
-                      {ritual.tag}
-                    </span>
-                  )}
-                  <span className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md text-black text-base font-semibold px-3 py-1.5 rounded shadow-sm">
-                    {ritual.duration}
-                  </span>
-                </div>
-
                 {/* Body Details */}
                 <div className="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-6">
                   <div className="space-y-3">
@@ -650,16 +632,16 @@ export default function App() {
 
               {/* Social Links */}
               <div className="flex items-center gap-3 pt-2">
-                <a href="#" aria-label="Google" className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform">
+                <a href="https://share.google/Q8rwSNpNjFa6sbpq1" target="_blank" rel="noopener noreferrer" aria-label="Google" className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform">
                   <GoogleIcon />
                 </a>
-                <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:scale-110 transition-transform">
+                <a href="https://www.facebook.com/profile.php?id=61590953857328" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:scale-110 transition-transform">
                   <FacebookIcon />
                 </a>
-                <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white flex items-center justify-center hover:scale-110 transition-transform">
+                <a href="https://www.instagram.com/ebcentrebeautyfacial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white flex items-center justify-center hover:scale-110 transition-transform">
                   <InstagramIcon />
                 </a>
-                <a href="#" aria-label="TikTok" className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform">
+                <a href="https://www.tiktok.com/@ebcentrebeautyfacial" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform">
                   <TikTokIcon />
                 </a>
               </div>

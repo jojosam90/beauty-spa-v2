@@ -572,12 +572,13 @@ export default function App() {
             </p>
           </div>
 
-          {/* Testimonial Grid: real reviews only, no repeated/duplicated cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {visibleTestimonials.map((testimonial, idx) => (
+          {/* Testimonial Carousel: auto-scrolls right-to-left, looping seamlessly on a doubled list */}
+          <div className="overflow-hidden -mx-6 px-6 [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+            <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused]">
+              {[...visibleTestimonials, ...visibleTestimonials].map((testimonial, idx) => (
                 <div
                   key={`${testimonial.name}-${idx}`}
-                  className="h-[380px] bg-white border border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                  className="shrink-0 w-[320px] sm:w-[380px] h-[380px] bg-white border border-gray-800 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col"
                 >
                   <div className="flex items-center justify-between shrink-0">
                     {/* Star Rating */}
@@ -607,7 +608,8 @@ export default function App() {
                     <p className="text-[10px] text-gray-400 shrink-0">{testimonial.date}</p>
                   </div>
                 </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-10">

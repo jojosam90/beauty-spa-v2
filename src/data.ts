@@ -9,16 +9,16 @@ export const translations = {
     heroPreTitle: "Premium Clinical Experience",
     heroTitle_1: "Head Spa Singapore",
     heroTitle_italic: "Discover the Ultimate Scalp Wellness",
-    heroSubtitle: "Korean Head Spa Singapore — Professional, scientifically-backed care for your scalp health and deep relaxation.",
+    heroSubtitle: "Deep Scalp Relaxation Singapore — Professional head spa care offering tension headache relief and scientifically-backed scalp wellness.",
     heroBtnBook: "Book Now",
     heroBtnRituals: "View Treatments",
-    reasonsTitle: "The 5 Reasons for Scalp Wellness",
-    reasonsSubtitle: "Our methodology merges clinical precision with therapeutic touch to optimize your scalp ecosystem.",
+    reasonsTitle: "5D Smart Device Deep Scalp Relaxation",
+    reasonsSubtitle: "5 Core Wellness Benefits",
     ritualsTitle: "Wellness Treatments",
-    ritualsSubtitle: "Traditional Korean hair care meets modern skin science for a private, precise head care experience.",
+    ritualsSubtitle: "Traditional Korean hair care meets modern skin science — from stiff neck scalp massage to migraine soothing treatment — for a private, precise head care experience.",
     ritualsDiscover: "Discover",
     aboutTreatmentTitle: "What You Can Expect",
-    aboutTreatmentSubtitle: "A full-body reset that starts from the head — release tension, restore clarity, and reignite energy.",
+    aboutTreatmentSubtitle: "A full-body reset that starts from the head — brain fatigue relaxation, insomnia relief scalp therapy, and restored clarity for those running on empty.",
     testimonialsWriteReview: "Write a Review",
     reviewModalTitle: "Share Your Experience",
     reviewNameLabel: "Your Name",
@@ -38,7 +38,7 @@ export const translations = {
     contactHoursLabel: "Business Hours",
     contactHoursValue: "Daily: 10:00 AM – 10:30 PM (By Appointment)",
     contactOpenInMaps: "Open in Maps",
-    footerIntro: "Singapore's premier destination for clinical Korean head spa rituals. Scientifically proven, luxuriously delivered.",
+    footerIntro: "Singapore's premier head spa for deep scalp relaxation and sleep improvement head care. Scientifically informed, luxuriously delivered.",
     footerCategoryTitle: "Treatments",
     footerContactTitle: "Contact Us",
     footerCopyright: "© 2026 EB Centre. All rights reserved.",
@@ -74,16 +74,16 @@ export const translations = {
     heroPreTitle: "新加坡第一家功效性养生",
     heroTitle_1: "新加坡头疗",
     heroTitle_italic: "发现极致头皮健康",
-    heroSubtitle: "新加坡韩式头疗 — 专业呵护您的头皮健康，融合尖端临床技术与全方位身心放松体验。",
+    heroSubtitle: "新加坡头部舒缓专家 — 提供头皮深层放松与缓解紧张性头痛的专业头疗体验，融合尖端科技与全方位身心放松。",
     heroBtnBook: "立即预约体验",
     heroBtnRituals: "查看疗程",
-    reasonsTitle: "头皮保养的5大理由",
-    reasonsSubtitle: "我们结合临床精确度与理疗触感，全面优化您的头皮微生态系统。",
+    reasonsTitle: "5D科技智能深层头皮舒缓",
+    reasonsSubtitle: "五大核心养护价值",
     ritualsTitle: "精品舒压疗程",
-    ritualsSubtitle: "我们结合韩国传统养发技艺与现代皮肤科学，为您提供私密且精准的头部护理体验。",
+    ritualsSubtitle: "我们结合韩国传统养发技艺与现代皮肤科学，提供肩颈头皮放松与偏头痛舒缓理疗，为您带来私密且精准的头部护理体验。",
     ritualsDiscover: "了解更多",
     aboutTreatmentTitle: "您可以期待的效果",
-    aboutTreatmentSubtitle: "从头部开始的全身重置——释放紧张，恢复清醒，重焕精力。",
+    aboutTreatmentSubtitle: "从头部开始的全身重置——熬夜头部减压，大脑疲劳舒缓，释放紧张，恢复清醒。",
     testimonialsWriteReview: "撰写评价",
     reviewModalTitle: "分享您的体验",
     reviewNameLabel: "您的姓名",
@@ -103,7 +103,7 @@ export const translations = {
     contactHoursLabel: "营业时间",
     contactHoursValue: "每日：上午10点 – 晚上10点30分（须预约）",
     contactOpenInMaps: "在地图中打开",
-    footerIntro: "新加坡高端头疗标杆。结合临床科学与韩国匠心，为您打造极致的头皮健康生态系统。",
+    footerIntro: "新加坡头部舒缓与头疗放松标杆。结合专业科学与韩国匠心，为您打造极致的头皮健康生态系统。",
     footerCategoryTitle: "疗程项目",
     footerContactTitle: "联系我们",
     footerCopyright: "© 2026 EB Centre. 版权所有。",
@@ -137,64 +137,64 @@ export const reasonsData = {
   en: [
     {
       id: 1,
-      title: "1. Purification",
-      description: "Deep cleansing to remove micro-impurities and follicle-clogging debris.",
+      title: "1. Release Tight Scalp Tension",
+      description: "Soothe soreness caused by stress and reduce frequent head distension.",
       iconName: "sanitizer"
     },
     {
       id: 2,
-      title: "2. Anti-Aging",
-      description: "Scalp lifting techniques that counteract gravitational aging effects.",
+      title: "2. Relax Stiff Cranial & Neck Muscles",
+      description: "Optimize blood circulation to the head and relieve brain fog from overwork.",
       iconName: "auto_fix_high"
     },
     {
       id: 3,
-      title: "3. Renewal",
-      description: "Cellular stimulation designed for forehead and scalp fine line prevention.",
+      title: "3. Calm Nervous Tension",
+      description: "Regulate restless states to improve sleep onset and sleep quality.",
       iconName: "refresh"
     },
     {
       id: 4,
-      title: "4. Deep Infusion",
-      description: "Advanced technology for maximum nutrient absorption at the root level.",
+      title: "4. Ease Shoulder & Back Soreness",
+      description: "Relieve pulling tension along with emotional stress and irritability.",
       iconName: "opacity"
     },
     {
       id: 5,
-      title: "5. Bio-Availability",
-      description: "Strategic scalp preparation to enhance the efficacy of therapeutic serums.",
+      title: "5. Nourish Scalp Condition",
+      description: "Improve tight, oily and sensitive scalp for a light, comfortable feeling.",
       iconName: "biotech"
     }
   ],
   zh: [
     {
       id: 1,
-      title: "1. 净澈毛囊",
-      description: "深层清洁长期堆积的化学残留与油脂，让毛囊重获呼吸。通过高压微分子渗透技术，从根源解决头屑与异味。",
+      title: "1. 疏通头皮紧绷张力",
+      description: "舒缓紧张带来的头部酸胀感，减少头部胀痛频率。",
       iconName: "sanitizer"
     },
     {
       id: 2,
-      title: "2. 疏通抗衰",
-      description: "针对头部经络进行深度疏通，缓解长期伏案带来的脑部压力。提升循环，有效延缓头皮衰老过程。",
+      title: "2. 放松颅周与颈部僵硬肌群",
+      description: "优化头部循环供氧，缓解用脑过度产生的昏沉感。",
       iconName: "spa"
     },
     {
       id: 3,
-      title: "3. 抚平细纹",
-      description: "头皮与脸部同根共生。头皮紧致度决定了面部轮廓，从根源防止皱纹产生。",
+      title: "3. 平复神经紧绷状态",
+      description: "帮助紊乱的作息舒缓下来，提升入睡顺畅度与睡眠深度。",
       iconName: "face_6"
     },
     {
       id: 4,
-      title: "4. 深度渗透",
-      description: "采用医用级超导技术，打破传统表面洗护的无效局面，将活性营养导入真皮层。",
+      title: "4. 释放肩背连带的牵拉酸痛",
+      description: "舒缓全身紧绷情绪，平复焦虑烦躁的状态。",
       iconName: "biotech"
     },
     {
       id: 5,
-      title: "5. 唤醒吸收",
-      description: "100%营养渗透率，激活沉睡毛母细胞，重塑头发生长生态环境，让发丝更显丰盈。",
+      title: "5. 全维度养护头皮环境",
+      description: "改善头皮紧绷出油敏感，打造轻松轻盈的头部状态。",
       iconName: "energy_savings_leaf"
     }
   ]
@@ -385,7 +385,7 @@ export const testimonialsData = {
     {
       name: "Victoria Chen",
       role: "Investment Banker",
-      quote: "The Korean Signature Head Spa completely cured my chronic stress headaches and dry scalp. The level of meticulous care is absolutely world-class.",
+      quote: "The Korean Signature Head Spa significantly helped relieve my chronic tension headaches and dry scalp. The level of meticulous care is absolutely world-class.",
       rating: 5,
       date: "Jun 27, 2026"
     },
@@ -408,7 +408,7 @@ export const testimonialsData = {
     {
       name: "陈女士 (Victoria)",
       role: "投资银行家",
-      quote: "韩式招牌头疗彻底治好了我的慢性偏头痛和头皮干燥。理疗师专业细致的手法简直是世界一流，每次都能睡得极其香甜。",
+      quote: "韩式招牌头疗大大缓解了我长期的紧张性偏头痛和头皮干燥问题。理疗师专业细致的手法简直是世界一流，每次都能睡得极其香甜。",
       rating: 5,
       date: "6/27/2026"
     },

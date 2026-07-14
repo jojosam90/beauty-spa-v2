@@ -100,6 +100,29 @@ export default function App() {
     refreshTestimonials(language);
   }, [language]);
 
+  // SEO: swap title/meta description to match the active language
+  useEffect(() => {
+    const seo = {
+      zh: {
+        title: "EB Centre｜新加坡5D科技头皮深层放松｜缓解头痛·改善失眠60分钟体验SGD28",
+        description: "新加坡Rochor地铁站附近专业5D智能仪器头皮舒缓，针对紧张头痛、入睡困难、大脑昏沉、肩颈僵硬定制放松方案，新客专属60分钟深层体验仅SGD28，到店赠送居家养护小样，立即预约体验。",
+      },
+      en: {
+        title: "EB Centre | 5D Smart Deep Scalp Relaxation Singapore | Headache & Insomnia Relief Trial SGD28",
+        description: "Professional 5D device scalp relaxation service near Rochor MRT, Singapore. Relieve tension headache, insomnia, brain fog and stiff shoulders. New guest exclusive 60 mins deep relaxation trial at SGD28, free home care sample included. Book your session now.",
+      },
+    }[language];
+
+    document.title = seo.title;
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "description");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", seo.description);
+  }, [language]);
+
   // One-time backfill for reviews saved before auto-translation existed
   useEffect(() => {
     migrateLegacyReviews().then((changed) => {
@@ -313,7 +336,7 @@ export default function App() {
         {/* Subtle Luxury Pattern / Glow Grid */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]" />
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Hero Left: Text Column */}
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-3">
@@ -356,12 +379,41 @@ export default function App() {
 
           {/* Hero Right: New Guest Exclusive Offer Promo */}
           <div className="lg:col-span-6 relative">
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl max-w-md mx-auto -mt-16">
               <img
                 src={promoBannerUrl}
                 alt="New guest exclusive offer — 60-minute experience, $28"
                 className="w-full h-full object-cover"
               />
+            </div>
+
+            <div className="relative z-10 mt-6 space-y-3">
+              {(language === "zh"
+                ? [
+                    ["售价", "SGD 28（仅限首次到店新客，每人限购1次）"],
+                    ["服务时长", "60分钟"],
+                    ["服务流程", "头皮舒缓+颅周释压+面部柔缓+面部柔缓+颈部舒展+肩背放松"],
+                    ["适用人群", "上班族、备考学生、高压创业者、经常头痛、睡眠不佳、大脑疲劳人群"],
+                    ["专属福利", "成功预约到店体验，免费领取居家舒缓养护小样"],
+                  ]
+                : [
+                    ["Price", "SGD 28 (new guests only, 1 per person)"],
+                    ["Duration", "60 minutes"],
+                    ["Process", "Scalp Soothing + Head Massage + Facial + Neck Stretch + Shoulder Release"],
+                    ["Best For", "Office workers, students, or anyone with headaches, poor sleep, or fatigue"],
+                    ["Exclusive Gift", "Free at-home care sample with your visit"],
+                  ]
+              ).map(([label, value]) => (
+                <div key={label} className={`flex gap-2 ${language === "zh" ? "text-base" : "text-sm"}`}>
+                  <span className="text-heritage-gold font-semibold shrink-0">{label}{language === "zh" ? "：" : ":"}</span>
+                  <span className="text-gray-300">{value}</span>
+                </div>
+              ))}
+              <p className="pt-3 mt-3 border-t border-white/10 text-sm text-gray-400 italic leading-relaxed">
+                {language === "zh"
+                  ? "温馨提示：长期定期养护的套餐，可到店后由顾问一对一讲解性价比方案，线上页面仅展示新客体验引流价。"
+                  : "Note: Long-term maintenance packages are explained in person by our consultants for the best value — this online price reflects the new-guest trial offer only."}
+              </p>
             </div>
 
             {/* Back Glow Effect */}
@@ -371,13 +423,15 @@ export default function App() {
       </section>
 
       {/* Bento Grid: The 5 Reasons for Scalp Wellness */}
-      <section id="wellness" className="py-20 bg-heritage-gold/10 border-b border-gray-100">
+      <section id="wellness" className="pt-20 pb-20 bg-heritage-gold/10 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center max-w-3xl mx-auto space-y-4 pt-6 ${language === "en" ? "mb-8" : "mb-16"}`}>
-            <h2 className="font-serif text-5xl sm:text-6xl text-black tracking-wide">
+          <div className={`text-center mx-auto space-y-4 pt-6 ${language === "en" ? "max-w-6xl mb-8" : "max-w-3xl mb-16"}`}>
+            <h2 className={`font-serif text-black tracking-wide ${
+              language === "en" ? "text-4xl sm:text-5xl whitespace-nowrap" : "text-5xl sm:text-6xl"
+            }`}>
               {t.reasonsTitle}
             </h2>
-            <p className="text-base sm:text-lg text-gray-500 leading-relaxed font-light">
+            <p className="text-xl sm:text-2xl text-gray-500 leading-relaxed font-light">
               {t.reasonsSubtitle}
             </p>
           </div>
@@ -396,7 +450,7 @@ export default function App() {
                 >
                   <div className="space-y-4">
                     <span className="text-[20px] tracking-widest font-mono uppercase font-bold block text-clinical-teal group-hover:text-white">
-                      {language === "zh" ? "理由" : "Reason 0"}{reason.id}
+                      {language === "zh" ? "价值" : "Benefits 0"}{reason.id}
                     </span>
 
                     <h3 className="font-serif text-3xl tracking-wide font-medium group-hover:text-white">
@@ -414,14 +468,14 @@ export default function App() {
       </section>
 
       {/* Services Section (Curated Wellness Rituals) */}
-      <section id="services" className="py-20 bg-white border-b border-gray-100">
+      <section id="services" className="pt-28 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 gap-4">
-            <div className={`space-y-4 ${language === "zh" ? "pt-6" : ""}`}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div className={`space-y-6 ${language === "zh" ? "pt-10" : ""}`}>
               <h2 className="font-serif text-5xl sm:text-6xl text-black tracking-wide">
                 {t.ritualsTitle}
               </h2>
-              <p className="text-base sm:text-lg text-gray-500 leading-relaxed font-light lg:whitespace-nowrap">
+              <p className="text-base sm:text-lg text-gray-500 leading-relaxed font-light max-w-2xl">
                 {t.ritualsSubtitle}
               </p>
             </div>
@@ -476,7 +530,7 @@ export default function App() {
       </section>
 
       {/* Brand Sanctuary Section */}
-      <section id="about" className="pt-28 pb-20 bg-heritage-gold/10 border-b border-gray-200">
+      <section id="about" className="pt-32 pb-20 bg-heritage-gold/10 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 space-y-10">
           <div className="space-y-4">
             <h2 className="font-serif text-4xl sm:text-5xl text-black tracking-wide">

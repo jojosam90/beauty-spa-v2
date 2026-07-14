@@ -198,6 +198,11 @@ export default function App() {
     setIsBookingOpen(true);
   };
 
+  const handleWhatsAppBooking = () => {
+    const url = `https://wa.me/6589410482?text=${encodeURIComponent("Hi Linda, I'd like to make an appointment. What times are available today? 你好Linda，我想预约, 请问今天几点可以？")}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   const handleBookFromDetail = (id: string) => {
     setIsDetailOpen(false);
     setSelectedTreatmentId(id);
@@ -254,7 +259,7 @@ export default function App() {
 
             {/* CTA Book Button */}
             <button
-              onClick={() => handleOpenBooking()}
+              onClick={() => handleWhatsAppBooking()}
               className="btn-shine animate-heartbeat bg-[#1F1110] text-white px-5 py-2.5 text-base font-semibold uppercase tracking-widest hover:bg-[#C5A059] rounded transition-colors"
             >
               {t.navBookNow}
@@ -320,7 +325,7 @@ export default function App() {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  handleOpenBooking();
+                  handleWhatsAppBooking();
                 }}
                 className="w-full bg-[#1F1110] text-white py-3 text-base uppercase tracking-widest font-semibold rounded"
               >
@@ -361,7 +366,7 @@ export default function App() {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
               <button
-                onClick={() => handleOpenBooking()}
+                onClick={() => handleWhatsAppBooking()}
                 className="btn-shine animate-heartbeat bg-[#C5A059] hover:bg-[#b08c48] text-white px-8 py-4 text-base font-bold uppercase tracking-widest rounded-md transition-all shadow-lg shadow-black/30 hover:-translate-y-0.5 active:translate-y-0 text-center"
               >
                 {t.heroBtnBook}
@@ -482,8 +487,8 @@ export default function App() {
           </div>
 
           {/* Treatment Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {treatmentsData[language].map((ritual) => (
+          <div className="grid grid-cols-1 max-w-md mx-auto gap-8">
+            {treatmentsData[language].filter((ritual) => ritual.id === "signature").map((ritual) => (
               <div
                 key={ritual.id}
                 className="bg-[#f8f9fa] border border-gray-200/60 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-500 flex flex-col justify-between group"
@@ -508,16 +513,10 @@ export default function App() {
                   </div>
 
                   {/* Actions row */}
-                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-gray-100">
+                  <div className="pt-4 border-t border-gray-100">
                     <button
-                      onClick={() => handleOpenDetail(ritual.id)}
-                      className="border border-gray-300 text-gray-700 hover:text-white hover:bg-heritage-gold hover:border-heritage-gold text-base font-semibold py-3 px-4 uppercase tracking-widest text-center rounded transition-all cursor-pointer"
-                    >
-                      {language === "zh" ? "查看详情" : "Discover"}
-                    </button>
-                    <button
-                      onClick={() => handleOpenBooking(ritual.id)}
-                      className="bg-[#1F1110] text-white hover:bg-clinical-teal text-base font-semibold py-3 px-4 uppercase tracking-widest text-center rounded transition-all cursor-pointer"
+                      onClick={() => handleWhatsAppBooking()}
+                      className="w-full bg-[#1F1110] text-white hover:bg-clinical-teal text-base font-semibold py-3 px-4 uppercase tracking-widest text-center rounded transition-all cursor-pointer"
                     >
                       {t.navBookNow}
                     </button>

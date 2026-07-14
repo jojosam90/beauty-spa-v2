@@ -15,7 +15,7 @@ export const translations = {
     reasonsTitle: "5D Smart Device Deep Scalp Relaxation",
     reasonsSubtitle: "5 Core Wellness Benefits",
     ritualsTitle: "Wellness Treatments",
-    ritualsSubtitle: "Traditional Korean hair care meets modern skin science — from stiff neck scalp massage to migraine soothing treatment — for a private, precise head care experience.",
+    ritualsSubtitle: "Traditional hair care meets modern skin science — from stiff neck scalp massage to migraine soothing treatment — for a private, precise head care experience.",
     ritualsDiscover: "Discover",
     aboutTreatmentTitle: "What You Can Expect",
     aboutTreatmentSubtitle: "A full-body reset that starts from the head — brain fatigue relaxation, insomnia relief scalp therapy, and restored clarity for those running on empty.",
@@ -80,7 +80,7 @@ export const translations = {
     reasonsTitle: "5D科技智能深层头皮舒缓",
     reasonsSubtitle: "五大核心养护价值",
     ritualsTitle: "精品舒压疗程",
-    ritualsSubtitle: "我们结合韩国传统养发技艺与现代皮肤科学，提供肩颈头皮放松与偏头痛舒缓理疗，为您带来私密且精准的头部护理体验。",
+    ritualsSubtitle: "我们结合传统养发技艺与现代皮肤科学，提供肩颈头皮放松与偏头痛舒缓理疗，为您带来私密且精准的头部护理体验。",
     ritualsDiscover: "了解更多",
     aboutTreatmentTitle: "您可以期待的效果",
     aboutTreatmentSubtitle: "从头部开始的全身重置——熬夜头部减压，大脑疲劳舒缓，释放紧张，恢复清醒。",
@@ -103,7 +103,7 @@ export const translations = {
     contactHoursLabel: "营业时间",
     contactHoursValue: "每日：上午10点 – 晚上10点30分（须预约）",
     contactOpenInMaps: "在地图中打开",
-    footerIntro: "新加坡头部舒缓与头疗放松标杆。结合专业科学与韩国匠心，为您打造极致的头皮健康生态系统。",
+    footerIntro: "新加坡头部舒缓与头疗放松标杆。结合专业科学与匠心工艺，为您打造极致的头皮健康生态系统。",
     footerCategoryTitle: "疗程项目",
     footerContactTitle: "联系我们",
     footerCopyright: "© 2026 EB Centre. 版权所有。",
@@ -204,11 +204,11 @@ export const treatmentsData = {
   en: [
     {
       id: "signature",
-      title: "Korean Signature Head Spa",
+      title: "Signature Head Spa",
       subtitle: "Ultimate Balancing Meridian Care",
       tag: "SIGNATURE",
       duration: "60 mins",
-      price: "$168 SGD",
+      price: "$118 SGD",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDkAb9jD2uLfUT1cHmjWK43Ub1tRQmi1mDMfyM_8VvQn6kpCwBLaxT5-co3OLnZUI_uq1uCkEubKh1fSuqRauuUQlGJGGp9RbtkLHKthpJ83uuTsc-54pQdTLMuVD9tWS_JQWbXTuvWFk78HPQZWMSSx2QjidpQ-i_Z1fnNTpNFkyWUSIkUoItu3JcZYy-EEzGGQkc4-xYApG-ehdI9TeoVbaoWtLFnW3mtj7DUgE1uVAG6JQYFASd8Q_cGDe_ZRX3BMjKuQ98r9pY",
       description: "A multi-sensory journey integrating precise meridian massage techniques to stimulate blood flow and deep relaxation.",
       benefits: [
@@ -221,7 +221,7 @@ export const treatmentsData = {
         { title: "Scalp Diagnosis", description: "High-magnification camera analysis to determine scalp type and specific conditions." },
         { title: "Aromatherapy Inhalation", description: "Inducing a relaxed parasympathetic state with premium lavender and bergamot oils." },
         { title: "Deep Clarifying Double Cleansing", description: "Sulfate-free formulation combined with gentle mechanical scalp exfoliation." },
-        { title: "Meridian Scalp Massage", description: "Traditional Korean acupressure focusing on the 12 meridian points of the scalp and neck." },
+        { title: "Meridian Scalp Massage", description: "Traditional acupressure focusing on the 12 meridian points of the scalp and neck." },
         { title: "Nutrient Mist Therapy", description: "Nano-vapor misting to open follicle cuticles and deep infuse custom botanical serums." },
         { title: "Blow-dry & Protect", description: "Cold-shot styling with application of heat-protective scalp barrier ampoules." }
       ]
@@ -274,24 +274,24 @@ export const treatmentsData = {
   zh: [
     {
       id: "signature",
-      title: "韩式招牌头疗",
+      title: "招牌头疗",
       subtitle: "经络平衡理疗",
       tag: "招牌推荐",
       duration: "60 分钟",
-      price: "$168 SGD",
+      price: "$118 SGD",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDkAb9jD2uLfUT1cHmjWK43Ub1tRQmi1mDMfyM_8VvQn6kpCwBLaxT5-co3OLnZUI_uq1uCkEubKh1fSuqRauuUQlGJGGp9RbtkLHKthpJ83uuTsc-54pQdTLMuVD9tWS_JQWbXTuvWFk78HPQZWMSSx2QjidpQ-i_Z1fnNTpNFkyWUSIkUoItu3JcZYy-EEzGGQkc4-xYApG-ehdI9TeoVbaoWtLFnW3mtj7DUgE1uVAG6JQYFASd8Q_cGDe_ZRX3BMjKuQ98r9pY",
       description: "结合深度经络按摩与定制化药水，提供多感官全方位的头部解压与修复体验。",
       benefits: [
         "重塑头皮微生态，深度调理油脂分泌，摆脱油腻和异味",
         "舒缓深层脑部压力，改善失眠、多梦状态，促进进入深度睡眠",
         "促进头部毛细血管循环，将充足的氧气和营养输送至毛囊",
-        "使用韩国原装草本提取液，由内而外滋养发丝，使头发更显柔顺"
+        "使用原装草本提取液，由内而外滋养发丝，使头发更显柔顺"
       ],
       steps: [
         { title: "专业头皮诊断", description: "通过高清头皮检测仪，分析头皮敏感度、皮脂堆积及毛囊状态。" },
         { title: "芳香舒缓吸入", description: "配合薰衣草与佛手柑天然精油吸入，迅速平复紧张情绪，激活副交感神经。" },
         { title: "双重氨基酸深层清洁", description: "温和无硅油配方，轻柔洗去头皮表层化学残留和环境污染物。" },
-        { title: "韩式头部经络按摩", description: "沿百会、太阳等头部核心穴位及后颈肩胛进行经络推拿，舒缓紧绷肌肉。" },
+        { title: "头部经络按摩", description: "沿百会、太阳等头部核心穴位及后颈肩胛进行经络推拿，舒缓紧绷肌肉。" },
         { title: "纳米气雾养护", description: "利用纳米级温热气雾打开毛囊角质，使营养液深入吸收。" },
         { title: "冷风吹拂与头皮屏障修护", description: "吹干头发的同时，在发根处均匀涂抹舒缓平衡安瓶，稳固头皮健康屏障。" }
       ]
@@ -346,8 +346,8 @@ export const treatmentsData = {
 export const commitmentsData = {
   en: [
     {
-      title: "Korean-Trained Specialists",
-      description: "Our therapists undergo rigorous training in authentic Korean head spa protocols and scalp anatomy.",
+      title: "Expert-Trained Specialists",
+      description: "Our therapists undergo rigorous training in authentic head spa protocols and scalp anatomy.",
       iconName: "verified_user"
     },
     {
@@ -364,7 +364,7 @@ export const commitmentsData = {
   zh: [
     {
       title: "全韩培训技师",
-      description: "所有理疗师均接受过韩国正统手法培训，确保护理的每一个细节都符合国际标准。",
+      description: "所有理疗师均接受过正统专业手法培训，确保护理的每一个细节都符合国际标准。",
       iconName: "verified_user"
     },
     {
@@ -385,7 +385,7 @@ export const testimonialsData = {
     {
       name: "Victoria Chen",
       role: "Investment Banker",
-      quote: "The Korean Signature Head Spa significantly helped relieve my chronic tension headaches and dry scalp. The level of meticulous care is absolutely world-class.",
+      quote: "The Signature Head Spa significantly helped relieve my chronic tension headaches and dry scalp. The level of meticulous care is absolutely world-class.",
       rating: 5,
       date: "Jun 27, 2026"
     },
@@ -408,7 +408,7 @@ export const testimonialsData = {
     {
       name: "陈女士 (Victoria)",
       role: "投资银行家",
-      quote: "韩式招牌头疗大大缓解了我长期的紧张性偏头痛和头皮干燥问题。理疗师专业细致的手法简直是世界一流，每次都能睡得极其香甜。",
+      quote: "招牌头疗大大缓解了我长期的紧张性偏头痛和头皮干燥问题。理疗师专业细致的手法简直是世界一流，每次都能睡得极其香甜。",
       rating: 5,
       date: "6/27/2026"
     },

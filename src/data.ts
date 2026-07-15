@@ -9,7 +9,7 @@ export const translations = {
     heroPreTitle: "Premium Clinical Experience",
     heroTitle_1: "Scalp Therapy Singapore",
     heroTitle_italic: "Discover the Ultimate Scalp Wellness",
-    heroSubtitle: "Deep Scalp Relaxation Singapore — Professional scalp therapy offering tension headache relief and scientifically-backed scalp wellness.",
+    heroSubtitle: "Singapore's 5D Smart Scalp Therapy — deep care that relieves tension headaches and restores restful sleep.\n\nSkin truth: scalp and face share one fascia. A deep scalp lift outworks countless facials — nourish your mind, renew your glow.",
     heroBtnBook: "Book Now",
     heroBtnRituals: "View Treatments",
     reasonsTitle: "5D Smart Device Deep Scalp Relaxation",
@@ -74,7 +74,7 @@ export const translations = {
     heroPreTitle: "新加坡第一家功效性养生",
     heroTitle_1: "新加坡头疗",
     heroTitle_italic: "发现极致头皮健康",
-    heroSubtitle: "新加坡头部舒缓专家 — 提供头皮深层放松与缓解紧张性头痛的专业头疗体验，融合尖端科技与全方位身心放松。",
+    heroSubtitle: "新加坡5D科技头疗 — 专注头皮深层养护与头部减压，有效缓解酸胀头痛、促进安稳入眠，融合尖端科技，由内释放用脑疲劳。\n\n牢记护肤真相：头皮与面部同属一层筋膜，一次头皮深层提拉，胜过多次面部养护，助您养脑更养颜，由内锁住年轻好状态。",
     heroBtnBook: "立即预约体验",
     heroBtnRituals: "查看疗程",
     reasonsTitle: "5D科技智能深层头皮舒缓",
@@ -381,38 +381,8 @@ export const commitmentsData = {
 };
 
 export const testimonialsData = {
-  en: [
-    {
-      name: "Victoria Chen",
-      role: "Investment Banker",
-      quote: "The signature head therapy significantly relieved my long-term tension headaches and dry scalp. The therapist's professional, meticulous technique is simply world-class — I sleep incredibly soundly every time.",
-      rating: 5,
-      date: "Jun 27, 2026"
-    },
-    {
-      name: "Sarah T.",
-      role: "Verified Client",
-      quote: "The head & face relaxation ritual was so soothing — after my very first session, my tension headache disappeared completely. The therapist's technique was highly skilled and attentive, truly a hidden gem!",
-      rating: 5,
-      date: "Jun 20, 2026"
-    }
-  ],
-  zh: [
-    {
-      name: "陈女士 (Victoria)",
-      role: "投资银行家",
-      quote: "招牌头疗大大缓解了我长期的紧张性偏头痛和头皮干燥问题。理疗师专业细致的手法简直是世界一流，每次都能睡得极其香甜。",
-      rating: 5,
-      date: "6/27/2026"
-    },
-    {
-      name: "Sarah T.",
-      role: "认证客户",
-      quote: "头脸舒缓疗程非常放松，做完第一次紧张性头痛就消失了。治疗师技术高超、贴心周到——真的是个隐藏宝地！",
-      rating: 5,
-      date: "6/20/2026"
-    }
-  ]
+  en: [],
+  zh: []
 };
 
 export const specialistsData = [

@@ -360,7 +360,7 @@ export default function App() {
               </h1>
             </div>
 
-            <p className="text-lg sm:text-xl text-gray-300 font-light leading-relaxed max-w-xl">
+            <p className={`${language === "zh" ? "text-base sm:text-lg" : "text-sm sm:text-base"} text-gray-300 font-light leading-relaxed max-w-xl whitespace-pre-line`}>
               {t.heroSubtitle}
             </p>
 

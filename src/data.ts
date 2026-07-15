@@ -2,7 +2,7 @@ import { Treatment, Reason, SanctuaryCommitment, Testimonial } from "./types";
 
 export const translations = {
   en: {
-    navServices: "Services",
+    navServices: "Programs",
     navAbout: "About",
     navWellness: "Wellness",
     navBookNow: "Book Now",
@@ -39,7 +39,7 @@ export const translations = {
     contactHoursValue: "Daily: 10:00 AM – 10:30 PM (By Appointment)",
     contactOpenInMaps: "Open in Maps",
     footerIntro: "Singapore's premier destination for deep scalp relaxation and sleep improvement head care. Scientifically informed, luxuriously delivered.",
-    footerCategoryTitle: "Treatments",
+    footerCategoryTitle: "Programs",
     footerContactTitle: "Contact Us",
     footerCopyright: "© 2026 EB Centre. All rights reserved.",
     footerBackToTop: "Back to Top",

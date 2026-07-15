@@ -746,7 +746,9 @@ export default function App() {
               {t.footerCategoryTitle}
             </h4>
             <ul className="space-y-2.5 font-light text-lg">
-              {treatmentsData[language].map((treatment) => (
+              {treatmentsData[language]
+                .filter((treatment) => treatment.id === "signature")
+                .map((treatment) => (
                 <li key={treatment.id}>
                   <a href="#services" className="hover:text-[#C5A059] transition-colors">
                     {treatment.title}

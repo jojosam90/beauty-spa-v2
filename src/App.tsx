@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import logoUrl from "../assets/logo.png";
 import promoBannerUrl from "../assets/promo-banner.jpg";
+import headTherapyPosterUrl from "../assets/head-therapy-poster.png";
+import headTherapyPosterEnUrl from "../assets/head-therapy-poster-en.png";
 import {
   Mail,
   Calendar,
@@ -19,7 +21,7 @@ import {
 } from "lucide-react";
 
 import { Language } from "./types";
-import { translations, reasonsData, treatmentsData, testimonialsData } from "./data";
+import { translations, treatmentsData, testimonialsData } from "./data";
 import { getApprovedReviews, getDeletedStaticNames, getReviewText, migrateLegacyReviews } from "./reviewStore";
 import { verifyAdminPin, getLockoutRemainingMs } from "./adminAuth";
 import BookingModal from "./components/BookingModal";
@@ -427,48 +429,14 @@ export default function App() {
         </div>
       </section>
 
-      {/* Bento Grid: The 5 Reasons for Scalp Wellness */}
+      {/* Scalp Wellness Benefits */}
       <section id="wellness" className="pt-20 pb-20 bg-heritage-gold/10 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center mx-auto space-y-4 pt-6 ${language === "en" ? "max-w-6xl mb-8" : "max-w-3xl mb-16"}`}>
-            <h2 className={`font-serif text-black tracking-wide ${
-              language === "en" ? "text-4xl sm:text-5xl whitespace-nowrap" : "text-5xl sm:text-6xl"
-            }`}>
-              {t.reasonsTitle}
-            </h2>
-            <p className="text-xl sm:text-2xl text-gray-500 leading-relaxed font-light">
-              {t.reasonsSubtitle}
-            </p>
-          </div>
-
-          {/* Interactive Bento Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-x-6 gap-y-10">
-            {reasonsData[language].map((reason) => {
-              // Row 2 has only 2 cards; offset card 4 so the pair sits centered under the 3-up row above.
-              const cardSpan = reason.id === 4 ? "md:col-span-2 md:col-start-2" : "md:col-span-2";
-
-              return (
-                <motion.div
-                  key={reason.id}
-                  className={`p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group relative overflow-hidden bg-white border border-gray-100 hover:bg-[#C5A059] hover:border-[#C5A059] ${cardSpan}`}
-                  whileHover={{ y: -4 }}
-                >
-                  <div className="space-y-4">
-                    <span className="text-[20px] tracking-widest font-mono uppercase font-bold block text-clinical-teal group-hover:text-white">
-                      {language === "zh" ? "价值" : "Benefits 0"}{reason.id}
-                    </span>
-
-                    <h3 className="font-serif text-3xl tracking-wide font-medium group-hover:text-white">
-                      {reason.title}
-                    </h3>
-                    <p className="text-base leading-relaxed font-light text-gray-600 group-hover:text-white/90">
-                      {reason.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+          <img
+            src={language === "zh" ? headTherapyPosterUrl : headTherapyPosterEnUrl}
+            alt={language === "zh" ? "头疗的好处" : "Benefits of Head Therapy"}
+            className="w-full max-w-5xl mx-auto rounded-xl shadow-sm"
+          />
         </div>
       </section>
 
